@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public float bulletDeltaTime =3.0f;
     float timer;
     public ParticleSystem ps;
+    public ParticleSystem psDestroyed;
     private Vector3 turretPos;
     ObjectController oc;
     Transform rotatableElement;
@@ -44,6 +45,12 @@ public class Turret : MonoBehaviour
                 Instantiate(bullet, BulletSpawnPoint.position, Quaternion.identity);
                 timer = 0;
             }
+        }
+        if(oc.getDurability() <= 0)
+        {
+            Debug.Log("Destroy turret");
+            psDestroyed.Play();
+            Destroy(gameObject);
         }
     }
 

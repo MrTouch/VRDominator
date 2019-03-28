@@ -5,6 +5,14 @@ using UnityEngine;
 public class CastleController : MonoBehaviour
 {
     ObjectController oc;
+    public ParticleSystem ps;
+    public ParticleSystem ps2;
+    public ParticleSystem ps3;
+    public ParticleSystem ps4;
+    public ParticleSystem ps5;
+    public ParticleSystem ps6;
+    public ParticleSystem ps7;
+    public ParticleSystem ps8;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +30,15 @@ public class CastleController : MonoBehaviour
         oc.healthbar.value = oc.getDurability() / oc.getMaxDurability();
         if(oc.getDurability() <= 0)
         {
+            ps.Play();
+            ps2.Play();
+            ps3.Play();
+            ps4.Play();
+            ps5.Play();
+            ps6.Play();
+            ps7.Play();
+            ps8.Play();
             Destroy(gameObject);
-            //Particle explosion here
             Debug.Log("Level End");
         }
     }

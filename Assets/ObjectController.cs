@@ -20,10 +20,7 @@ public class ObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(durability <= 0)
-        {
-            Destroy(gameObject);
-        }
+
     }
 
     public void setDurability(float d)

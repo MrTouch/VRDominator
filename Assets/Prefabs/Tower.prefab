@@ -5295,9 +5295,10 @@ MonoBehaviour:
   player: {fileID: 0}
   bullet: {fileID: 2885470443407531211, guid: 4cb4a2b1b594a4140ae2fe0cb661779f, type: 3}
   BulletSpawnPoint: {fileID: 7382019440481481421}
-  shootDistance: 22
+  shootDistance: 23
   bulletDeltaTime: 3
   ps: {fileID: 3358453626038857594}
+  psDestroyed: {fileID: 0}
 --- !u!114 &5038513169565974350
 MonoBehaviour:
   m_ObjectHideFlags: 0
