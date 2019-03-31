@@ -13,7 +13,7 @@ public class Turret : MonoBehaviour
     public ParticleSystem ps;
     public ParticleSystem psDestroyed;
     private Vector3 turretPos;
-    ObjectController oc;
+    public ObjectController oc;
     Transform rotatableElement;
 
     // Start is called before the first frame update
@@ -46,12 +46,15 @@ public class Turret : MonoBehaviour
                 timer = 0;
             }
         }
-        if(oc.getDurability() <= 0)
-        {
-            Debug.Log("Destroy turret");
-            psDestroyed.Play();
-            Destroy(gameObject);
+        if (gameObject.GetComponent<ObjectController>()) {
+            if (gameObject.GetComponent<ObjectController>().getDurability() <= 0)
+            {
+                Debug.Log("Destroy turret");
+                psDestroyed.Play();
+                Destroy(gameObject);
+            }
         }
+       
     }
 
     private void OnCollisionEnter(Collision collision)
