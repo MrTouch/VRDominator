@@ -15,6 +15,8 @@ public class Turret : MonoBehaviour
     private Vector3 turretPos;
     public ObjectController oc;
     Transform rotatableElement;
+    public AudioSource shoot;
+    public AudioSource explode;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +39,13 @@ public class Turret : MonoBehaviour
         //Debug.Log(player.transform.position);
         if (distance < shootDistance)
         {
-            rotatableElement.transform.LookAt(player.transform);
+            Vector3 position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            
+            rotatableElement.transform.LookAt(position);
             if (timer > bulletDeltaTime)
             {
                 Debug.Log("shoot");
+                shoot.Play();
                 ps.Play();
                 Instantiate(bullet, BulletSpawnPoint.position, Quaternion.identity);
                 timer = 0;
@@ -50,6 +55,7 @@ public class Turret : MonoBehaviour
             if (gameObject.GetComponent<ObjectController>().getDurability() <= 0)
             {
                 Debug.Log("Destroy turret");
+                explode.Play();
                 psDestroyed.Play();
                 Destroy(gameObject);
             }

@@ -42,8 +42,8 @@ public class ControllerInput1 : MonoBehaviour
         {
             if (leftHandTouched)
             {
-                Debug.Log(player.transform.forward);
-                Debug.Log(player.transform.rotation);
+                //Debug.Log(player.transform.forward);
+                //Debug.Log(player.transform.rotation);
                 
                 float playerZ = player.transform.position.z + walkDirection.y / 10;
                 float playerX = player.transform.position.x + walkDirection.x / 10;
@@ -53,7 +53,7 @@ public class ControllerInput1 : MonoBehaviour
                 {
                     // Move Forward
                     player.transform.position -= player.transform.forward * Time.deltaTime * (walkDirection.y * 5f);
-
+                    
                     // Adjust height to terrain height at player positin
                     currentPlayerPos = player.transform.position;
                     currentPlayerPos.y = Terrain.activeTerrain.SampleHeight(player.transform.position);

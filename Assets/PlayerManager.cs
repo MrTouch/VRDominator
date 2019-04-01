@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public float hp = 100.0f;
     ObjectController oc;
+    public AudioSource hitsound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Bullet hit me!");
             Debug.Log("lower hp");
+            hitsound.Play();
             hp -= col.gameObject.GetComponent<ObjectController>().getDmg();
             oc.setDurability(hp);
             oc.healthbar.value = hp / oc.getMaxDurability();
