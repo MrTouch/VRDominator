@@ -217,6 +217,10 @@ MonoBehaviour:
   ps: {fileID: 8088122682308735847}
   psDestroyed: {fileID: 0}
   oc: {fileID: 1966158191095636819}
+  shoot: {fileID: 0}
+  explode: {fileID: 0}
+  win: {fileID: 0}
+  gc: {fileID: 0}
 --- !u!114 &1966158191095636819
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class Turret : MonoBehaviour
     public AudioSource shoot;
     public AudioSource explode;
 
+    public Canvas win;
+    public GameController gc;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +57,16 @@ public class Turret : MonoBehaviour
             if (gameObject.GetComponent<ObjectController>().getDurability() <= 0)
             {
                 Debug.Log("Destroy turret");
+                if(gameObject.transform.name == "BigPyramid")
+                {
+                    win.enabled = true;
+                    gc.reloadScene();
+                }
                 explode.Play();
                 psDestroyed.Play();
                 Destroy(gameObject);
+            
+                
             }
         }
        

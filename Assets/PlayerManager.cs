@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     public float hp = 100.0f;
     ObjectController oc;
     public AudioSource hitsound;
+    public Canvas loose;
+    public GameController gc;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(oc.getDurability() <= 0)
+        {
+            loose.enabled = true;
+            //gc.reloadScene();
+        }
     }
 
     private void OnCollisionEnter(Collision col)

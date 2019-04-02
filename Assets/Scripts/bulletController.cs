@@ -21,7 +21,7 @@ public class bulletController : MonoBehaviour
         flyDirection = target.transform.position - transform.position;
         flyDirection.y += 1f;
         flyDirection = Vector3.Normalize(flyDirection);
-        Debug.Log(flyDirection);
+        //Debug.Log(flyDirection);
         rb = gameObject.GetComponent<Rigidbody>();
         oc = gameObject.GetComponent<ObjectController>();
 
@@ -38,11 +38,11 @@ public class bulletController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("bulletcol");
+        //Debug.Log("bulletcol");
 
         if(collision.gameObject.name == "Terrain")
         {
-            Debug.Log("Collision with terrain");
+            //Debug.Log("Collision with terrain");
             if(!firstTimePhysics)
             {
                 rb.useGravity = true;
@@ -56,7 +56,7 @@ public class bulletController : MonoBehaviour
         else
         {
 
-            Debug.Log("collision with any other Element");
+            //Debug.Log("collision with any other Element");
 
             rb.useGravity = true;
             gravityOn = true;
@@ -70,7 +70,7 @@ public class bulletController : MonoBehaviour
     {
         if(collision.gameObject.name == "Terrain")
         {
-            Debug.Log("Collision exit terrain");
+            //Debug.Log("Collision exit terrain");
             isgrounded = false;
         }
     }

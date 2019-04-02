@@ -13,6 +13,7 @@ public class ControllerInput1 : MonoBehaviour
     public SteamVR_Action_Boolean TouchPad;
     public SteamVR_Action_Vector2 TouchPos;
     public GameObject player;
+    public GameObject playerBody;
 
     private void OnEnable()
     {
@@ -45,10 +46,13 @@ public class ControllerInput1 : MonoBehaviour
                 //Debug.Log(player.transform.forward);
                 //Debug.Log(player.transform.rotation);
                 
-                float playerZ = player.transform.position.z + walkDirection.y / 10;
-                float playerX = player.transform.position.x + walkDirection.x / 10;
-                player.transform.position = new Vector3(playerX, player.transform.position.y, playerZ);
-
+                float movementVertical = walkDirection.y / 10;
+                float movementHorizontal = walkDirection.x / 10;
+                //player.transform.position = new Vector3(playerX, player.transform.position.y, playerZ);
+                Vector3 movement = new Vector3(movementHorizontal * 1.5f, player.transform.position.y, movementVertical * 1.5f);
+                playerBody.GetComponent<Rigidbody>().AddForce(movement * 13f, ForceMode.Force);
+                
+                /*
                 if (walkDirection.y > 0.2f || walkDirection.y < -0.2f)
                 {
                     // Move Forward
@@ -59,7 +63,7 @@ public class ControllerInput1 : MonoBehaviour
                     currentPlayerPos.y = Terrain.activeTerrain.SampleHeight(player.transform.position);
                     player.transform.position = currentPlayerPos;
                 }
-
+                */
                 //Debug.Log("Left hand");
             }
             if (rightHandTouched)
